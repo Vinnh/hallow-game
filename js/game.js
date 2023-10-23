@@ -46,9 +46,12 @@ window.onload = function () {
 
         document.querySelector('.n').innerHTML = input.value;
         jogador.style.display = 'block';
+
+        document.getElementById("alvo").style.display = 'block';
+        document.getElementById("game").style.display = 'block';
     
         moverImagem();
-        setInterval(moverImagem, 1000); // Define o intervalo de tempo para mover a imagem (3 segundos no exemplo)
+        setInterval(moverImagem, 1000); // Define o intervalo de tempo para mover a imagem
         popupAlternar();
 
         });

@@ -151,3 +151,11 @@ header {
     cursor: pointer;
   }
   
+
+  #alvo {
+    display: none;
+  }
+
+  #game {
+    display: none;
+  }
