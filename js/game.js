@@ -33,6 +33,9 @@ var btnJogar = document.getElementById('jogar');
 var btnRanking = document.getElementById('ranking');
 var jogador = document.getElementById('jogador');
 
+// função de chamar pro popup
+
+
 // Executa a função quando a página é carregada e também em um intervalo de tempo para continuar o movimento
 window.onload = function () {
 
@@ -114,4 +117,8 @@ game.addEventListener('click', handleClique);
 function popupAlternar(){
     const popup = document.getElementById('popup');
     popup.classList.toggle('active');
+  }
+
+  if(tentativas == 3){
+    popupAlternar();
   }
