@@ -1,70 +1,50 @@
-<?php
+<?php 
+class Partida {
+    private $id;
+    private $acertos;
+    private $erros;
+	private $tentativas;
+    private $data_hora;
 
-class Partida
-{
-    private int $id;
-    private string $nome;
-    private int $qntdAcertos;
-    private int $qntdErros;
-    private string $dataehora;
+    /* --- GETTERS AND SETTERS ---*/
+	public function getId() {
+		return $this->id;
+	}
 
-    public function getId(): int
-    {
-        return $this->id;
-    }
+	public function setId($id) {
+		$this->id = $id;
+	}
 
-    public function setId(int $id): self
-    {
-        $this->id = $id;
+	public function getAcertos() {
+		return $this->acertos;
+	}
 
-        return $this;
-    }
+	public function setAcertos($acertos) {
+		$this->acertos = $acertos;
+	}
 
-    public function getNome(): string
-    {
-        return $this->nome;
-    }
+	public function getErros() {
+		return $this->erros;
+	}
 
-    public function setNome(string $nome): self
-    {
-        $this->nome = $nome;
+	public function setErros($erros) {
+		$this->erros = $erros;
+	}
 
-        return $this;
-    }
+	public function getTentativas() {
+		return $this->tentativas;
+	}
 
-    public function getQntdErros(): int
-    {
-        return $this->qntdErros;
-    }
+	public function setTentativas($tentativas) {
+		$this->tentativas = $tentativas;
+	}
 
-    public function setQntdErros(int $qntdErros): self
-    {
-        $this->qntdErros = $qntdErros;
+	public function getData_hora() {
+		return $this->data_hora;
+	}
 
-        return $this;
-    }
-
-    public function getQntdAcertos(): int
-    {
-        return $this->qntdAcertos;
-    }
-
-    public function setQntdAcertos(int $qntdAcertos): self
-    {
-        $this->qntdAcertos = $qntdAcertos;
-
-        return $this;
-    }
-
-    public function getDataehora(): string
-    {
-        return $this->dataehora;
-    }
-
-    public function setDataehora(string $dataehora): self
-    {
-        $this->dataehora = $dataehora;
-
-        return $this;
-    }
+	public function setData_hora($data_hora) {
+		$this->data_hora = $data_hora;
+	}
 }
+?>

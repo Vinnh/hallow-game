@@ -2,7 +2,7 @@
 <html lang="pt-br">
     
     <?php
-    require_once "../model/Partida.php";
+    require_once "../model/partida.php";
 
     $caminhoBanco = "/database/jogo_ranking";
     $conexao = new PDO("sqlite:" . $caminhoBanco);
@@ -27,12 +27,13 @@
             <th>NOME</th>
             <th>ACERTOS</th>
             <th>ERROS</th>
+            <th>TENTATIVAS</th>
             <th>DATA/HORA</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            $consulta = $conexao->query("SELECT * FROM partidas ORDER BY acertos DESC, erros ASC, data_hora DESC;");
+            $consulta = $conexao->query("SELECT * FROM ranking ORDER BY acertos DESC, erros ASC, data_hora DESC;");
             $partidas = $consulta->fetchAll(PDO::FETCH_CLASS, "Partida");
 
             $i = 1;
@@ -43,7 +44,8 @@
                     <td><?= $p->getNome(); ?></td>
                     <td><?= $p->getAcertos(); ?></td>
                     <td><?= $p->getErros(); ?></td>
-                    <td><?= $p->getDataehora(); ?></td>
+                    <td><?= $p->getTentativas(); ?></td>
+                    <td><?= $p->getData_hora(); ?></td>
                     </tr>
                 <?php
                 endforeach;
