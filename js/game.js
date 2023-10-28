@@ -41,10 +41,11 @@ window.onload = function () {
 
     popupAlternar();
 
+    var btnIniciar = document.getElementById("iniciar");
     var formulario = document.getElementById("formulario");
     var input = document.getElementById("nome");
 
-    formulario.addEventListener("submit", function(event) {
+    btnIniciar.addEventListener("click", function() {
         event.preventDefault(); // Impede o envio padrão do formulário
 
         document.querySelector('.n').innerHTML = input.value;
@@ -108,6 +109,12 @@ function handleClique(event) {
   } else {
     erros++;
     atualizarContagem();
+
+    if(erros == 3){
+      document.getElementById("formulario").style.display = 'block';
+      document.getElementById("iniciar").style.display = 'none';
+      popupAlternar();
+    }
   }
 }
 
@@ -117,8 +124,8 @@ game.addEventListener('click', handleClique);
 function popupAlternar(){
     const popup = document.getElementById('popup');
     popup.classList.toggle('active');
-  }
 
-  if(tentativas == 3){
-    popupAlternar();
+    document.getElementById('acertos').value = acertos;
+    document.getElementById('erros').value = erros;
+    document.getElementById('tentativas').value = tentativas;
   }

@@ -1,6 +1,6 @@
 <?php
 
-$conn = new PDO("sqlite:../database/jogo_ranking.sqlite"); //classe de conexão do PHP com o bancos de dados
+$conn = new PDO("sqlite:../database/jogo_ranking"); //classe de conexão do PHP com o bancos de dados
 
 $conn->setAttribute(
     PDO::ATTR_DEFAULT_FETCH_MODE, //Nome do atributo
@@ -9,21 +9,23 @@ $conn->setAttribute(
 );
 
 $nome = $_GET["nome"];
-$acertos = $_GET["quantidade_acertos"];
-$erros = $_GET["quantidade_erros"];
-$data = $_GET["data_hora_partida"];
+$acertos = $_GET["acertos"];
+$erros = $_GET["erros"];
+$tentativas = $_GET["tentativas"];
+$data = date("d-m-Y H:i:S");
 
 
 // INSERIR NA TABELA
 
-$q = $conn->prepare("INSERT INTO ranking (nome, quantidade_acertos, quantidade_erros, data_hora_partida ) VALUES(:nome, :quantidade_acertos, :quantidade_erros, :data_hora_partida);");
+$q = $conn->prepare("INSERT INTO ranking (nome, acertos, erros, tentativas, data_hora) VALUES(:nome, :acertos, :erros, :tentativas, :data_hora)");
 
 $q->bindParam(":nome", $nome);
-$q->bindParam(":quantidade_acertos", $acertos);
-$q->bindParam(":quantidade_erros", $erros);
-$q->bindParam(":data_hora_partida", $data);
+$q->bindParam(":acertos", $acertos);
+$q->bindParam(":erros", $erros);
+$q->bindParam(":tentativas", $tentativas);
+$q->bindParam(":data_hora", $data);
 
 $q->execute();
 
-header("Location:../index.html");
+header("Location:../index.php");
 ?>
