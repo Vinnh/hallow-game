@@ -2,11 +2,11 @@
 <html lang="pt-br">
     
     <?php
-    require_once "../model/partida.php";
+    require_once "model/partida.php";
 
-    $caminhoBanco = "/database/jogo_ranking";
+    $caminhoBanco = "database/jogo_ranking";
     $conexao = new PDO("sqlite:" . $caminhoBanco);
-    $conexao->setAtribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+    $conexao->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
     ?>
 <head>
     <meta charset="UTF-8">
@@ -18,8 +18,17 @@
     <script src="js/game.js" defer></script>
 
 </head>
-<body>
+<body class="ranking">
 
+<header style="text-align: center;">
+        <h1>Hallow</h1>
+</header>
+
+
+<div id="popup">
+    <div class="content">
+
+    <h1>Ranking</h1>
 <table>
     <thead>
         <tr>
@@ -34,10 +43,10 @@
         <tbody>
             <?php
             $consulta = $conexao->query("SELECT * FROM ranking ORDER BY acertos DESC, erros ASC, data_hora DESC;");
-            $partidas = $consulta->fetchAll(PDO::FETCH_CLASS, "Partida");
+            $partida = $consulta->fetchAll(PDO::FETCH_CLASS, "Partida");
 
             $i = 1;
-            foreach ($partidas as $p) :
+            foreach ($partida as $p) :
                 ?>
                 <tr>
                     <td><?= $i++ ?></td>
@@ -52,7 +61,12 @@
             ?>
             </tbody>
     </table>
-        
+
+    </div>
+
+    <button class="btnDesign" id="voltar">voltar</button>
+
+</div>        
 
           
       <footer>
@@ -76,6 +90,16 @@
           </div>
       </footer>
 
+      <script>
+          let btnVoltar = document.getElementById("voltar");
 
-</body>
+btnVoltar.addEventListener("click", function() {
+
+  window.location.href = "index.php"
+
+  });
+      </script>
+
+
+    </body>
 </html>

@@ -27,5 +27,5 @@ $q->bindParam(":data_hora", $data);
 
 $q->execute();
 
-header("Location:../index.php");
+header("Location:../ranking.php");
 ?>

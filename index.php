@@ -10,7 +10,32 @@
     <script src="js/game.js" defer></script>
 
 </head>
+
 <body>
+
+<header>
+        <h1>Hallow</h1>
+
+        <div id="jogador">
+            <h1 class="n">nome</h1>
+        </div>
+
+        <div class="acertos">
+            <p >Acertos: 0</p>
+
+        </div>
+        <div class="erros">
+            <p>Erros: 0</p>
+        </div>
+        
+        <div class="tentativas">
+            <p>Tentativas: 0</p>
+        </div>   
+
+        <div>
+            <p id="temporizador">30</p>
+        </div>   
+    </header>
 
         <div id="popup">
             <div class="content">
@@ -18,7 +43,7 @@
               <h2>Hallow</h2>
               <p>Clique abaixo e inicie essa experiência gamepilante.</p>
 
-              <button id="iniciar">iniciar</button>
+              <button class="btnDesign" id="iniciar">iniciar</button>
     
                 <form method="GET" action="ws/conexao.php" id="formulario" class="inputBox">
                     <input type="text" placeholder="jogador" id="nome" name="nome">
@@ -32,28 +57,6 @@
     
             </div> 
           </div>
-
-    
-
-    <header>
-        <h1>Hallow</h1>
-
-        <div id="jogador">
-            <h1 class="n">nome</h1>
-        </div>
-
-        <div class="acertos">
-            <p >Acertos: 0</p>
-
-        </div>
-        <div class="erros">
-            <p>Erros: 0</p>
-
-        </div>
-        <div class="tentativas">
-            <p>Tentativas: 0</p>
-        </div>        
-    </header>
     
     <div id="game">
     

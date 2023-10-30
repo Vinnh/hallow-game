@@ -35,7 +35,7 @@ var jogador = document.getElementById('jogador');
 
 // função de chamar pro popup
 
-
+var temporizadorInterval = 0;
 // Executa a função quando a página é carregada e também em um intervalo de tempo para continuar o movimento
 window.onload = function () {
 
@@ -57,6 +57,7 @@ window.onload = function () {
         moverImagem();
         setInterval(moverImagem, 1000); // Define o intervalo de tempo para mover a imagem
         popupAlternar();
+        temporizadorInterval = setInterval(atualizarTemporizador, 1000); // Atualiza a cada segundo
 
         });
 
@@ -99,6 +100,7 @@ function animation() {
 
 // Função para manipular o clique
 function handleClique(event) {
+
   tentativas++;
   atualizarContagem();
 
@@ -110,11 +112,6 @@ function handleClique(event) {
     erros++;
     atualizarContagem();
 
-    if(erros == 3){
-      document.getElementById("formulario").style.display = 'block';
-      document.getElementById("iniciar").style.display = 'none';
-      popupAlternar();
-    }
   }
 }
 
@@ -128,4 +125,28 @@ function popupAlternar(){
     document.getElementById('acertos').value = acertos;
     document.getElementById('erros').value = erros;
     document.getElementById('tentativas').value = tentativas;
+  }
+
+  // temporizador
+
+  var temporizadorElement = document.getElementById("temporizador");
+
+  // Função para atualizar o temporizador a cada segundo
+  function atualizarTemporizador() {
+      var segundos = parseInt(temporizadorElement.textContent);
+      if (segundos > 0) {
+          segundos--;
+          temporizadorElement.textContent = segundos;
+      } else {
+          clearInterval(temporizadorInterval); // Para o temporizador quando atingir 0
+          document.getElementById("formulario").style.display = 'block';
+          document.getElementById("iniciar").style.display = 'none';
+          document.getElementById("alvo").style.display = 'none';
+          document.getElementById("game").style.display = 'none';
+          popupAlternar();
+
+      }
+
+        // Inicialize o temporizador
+
   }

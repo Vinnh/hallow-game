@@ -90,7 +90,7 @@ header {
     transform: translate(-50%, -50%);
     z-index: 1000;
     background: #e0c89a;
-    width: 450px;
+    width: 800px;
     padding: 80px 50px 50px;
     box-shadow: 0 15px rgba(0,0,0,0.08);
     transition: 0.5s;
@@ -146,7 +146,7 @@ header {
     background: #f48c03;
     color: #fff;
     border: none;
-    margin-bottom: 10px;
+    margin-top: 10px;
   }
   .sair{
     position: absolute;
@@ -163,3 +163,29 @@ header {
   #game {
     display: none;
   }
+
+  table {
+    color: #fff;
+    text-align: center;
+    width: 80%;
+  }
+
+.ranking {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btnDesign {
+  width: 100%;
+  padding: 15px;
+  outline: none;
+  font-size: 18px;
+  background: #f48c03;
+  color: #fff;
+  border: none;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
