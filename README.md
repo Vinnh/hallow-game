@@ -1,2 +1,2 @@
 # hallow-game
-feito na base do ódio
+feito na base do amor
